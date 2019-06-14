@@ -320,7 +320,7 @@
         lugarExpedicion: [''],
         salarioTexto: [''],
         area: [''],
-        jefe: [''],
+        jefe: ['', Validators.required],
         direccion: [''],
         celular: [''],
         sede: [''],
@@ -451,6 +451,16 @@
   
       if (this.editarEmpleadoForm.get('numeroDocumento').value === "") {
         this.MensajeAdvertencia('El campo "Número de documento" es requerido');
+        this.counter++;
+      }
+
+      if(this.editarEmpleadoForm.get('fechaIngreso').value === "") {
+        this.MensajeAdvertencia('El campo Fecha de ingreso es requerido');
+        this.counter++;
+      }
+
+      if(this.editarEmpleadoForm.get('jefe').value === "") {
+        this.MensajeAdvertencia('el campo Jefe es requerido');
         this.counter++;
       }
   

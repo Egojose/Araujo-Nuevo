@@ -59,7 +59,7 @@ export class CrearRegistroComponent implements OnInit {
       segundoApellido: [''],
       numeroDocumento: ['', Validators.required],
       tipoDocumento: [''],
-      fechaIngreso: [''],
+      fechaIngreso: ['', Validators.required],
       fechaSalida: [''],
       tipoContrato: [''],
       terminoContrato: [''],
@@ -68,7 +68,7 @@ export class CrearRegistroComponent implements OnInit {
       lugarExpedicion: [''],
       salarioTexto: [''],
       area: [''],
-      jefe: [''],
+      jefe: ['', Validators.required],
       direccion: [''],
       celular: [''],
       sede: [''],
@@ -218,7 +218,6 @@ export class CrearRegistroComponent implements OnInit {
       this.counter++;
     }
 
-
     if (this.empleadoForm.get('primerApellido').value === "") {
       this.MensajeAdvertencia('El campo "Primer Apellido" es requerido');
       this.counter++;
@@ -226,6 +225,16 @@ export class CrearRegistroComponent implements OnInit {
 
     if (this.empleadoForm.get('numeroDocumento').value === "") {
       this.MensajeAdvertencia('El campo "Número de documento" es requerido');
+      this.counter++;
+    }
+
+    if(this.empleadoForm.get('jefe').value === "") {
+      this.MensajeAdvertencia('El campo Jefe es requerido');
+      this.counter++;
+    }
+
+    if(this.empleadoForm.get('fechaIngreso').value === "") {
+      this.MensajeAdvertencia('El campo Fecha de ingreso es requerido');
       this.counter++;
     }
 
