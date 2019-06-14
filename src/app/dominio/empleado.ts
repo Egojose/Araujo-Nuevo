@@ -53,7 +53,7 @@ export class Empleado {
             element.lugarExpedicion,
             element.salarioTexto,
             element.Area,
-            element.Jefe,
+            element.JefeId,
             element.Direccion,
             element.Celular,
             element.Sede,
