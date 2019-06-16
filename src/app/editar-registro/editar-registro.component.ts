@@ -10,7 +10,8 @@
   import { ItemAddResult } from 'sp-pnp-js';
   import { Empleado } from '../dominio/empleado';
   import { Grupo } from '../dominio/grupo';
-  
+  import { Documentos } from '../dominio/documentos';
+   
 
   @Component({
     selector: 'app-editar-registro',
@@ -39,6 +40,7 @@
   counter: number = 0;
   PermisosCrearRegistro: boolean;
   fechaFormato;
+  docAdjuntos: Documentos[] = [];
 
  
     constructor(private fB: FormBuilder, private servicio: SPServicio, private router: Router, public toastr: ToastrManager) { }
@@ -47,7 +49,6 @@
       this.registrarControles();
       this.obtenerUsuarios();
       this.ObtenerUsuarioActual();
-      
     }
 
     adjuntarHojaDeVida(event) {
