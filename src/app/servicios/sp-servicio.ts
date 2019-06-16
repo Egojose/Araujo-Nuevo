@@ -170,6 +170,16 @@ export class SPServicio {
         return respuesta;
     }
 
+    obtenerAdjuntos() {
+        let respuesta = from(this.ObtenerConfiguracion().web.lists.getByTitle(environment.listaDocAdjuntos).items.get());
+        return respuesta;
+    }
+
+    obtenerDocAdjuntosUsuario(IdUsuario) {
+        let respuesta = from(this.ObtenerConfiguracion().web.lists.getByTitle(environment.listaDocAdjuntos).items.select("*").expand("Empleado/Title, Empleado/ID").filter("EmpleadoId eq " + IdUsuario + "").get());
+        return respuesta;
+    }
+
     // agregarAdjuntoCertificados(IdUsuario: number, nombreArchivo: string, archivo: File) {
     //     let item = this.ObtenerConfiguracionConPost().web.lists.getByTitle(environment.listaContratos).items.getById(IdContrato);
     //     return item.attachmentFiles.add(nombreArchivo, archivo);
